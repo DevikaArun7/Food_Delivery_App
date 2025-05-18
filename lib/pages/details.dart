@@ -9,6 +9,7 @@ class Details extends StatefulWidget {
 }
 
 class _DetailsState extends State<Details> {
+  int a =1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +30,107 @@ class _DetailsState extends State<Details> {
                 fit: BoxFit.fill,
                 ),
                 SizedBox(height: 15,),
-                Text("Mediterranean", style: AppWidget.semiBoldTextFeildStyle(),)
+                Row(
+                  children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Mediterranean", style: AppWidget.semiBoldTextFeildStyle(),),
+                      Text("Chickpea Salad", style: AppWidget.boldTextFeildStyle(),),
+                    ],
+                  ),
+                  Spacer(),
+                  GestureDetector(
+                    onTap: () {
+                      if(a>1){
+                        --a;
+                      }
+                      setState(() {
+                        
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius:BorderRadius.circular(8), ),
+                      child: Icon(
+                        Icons.remove,
+                        color: Colors.white,
+                        ),
+                    ),
+                  ),
+                  SizedBox(width: 20,),
+                  Text(a.toString(),style: AppWidget.semiBoldTextFeildStyle(),),
+                   SizedBox(width: 20,),
+                  GestureDetector(
+                    onTap: () {
+                      ++a;
+                      setState(() {
+                        
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius:BorderRadius.circular(8) ,
+                        ),
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                        ),
+                    ),
+                  ),
+                ],
+                ),
+                SizedBox(height: 20,),
+                Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                style: AppWidget.LightTextFeildStyle(),maxLines: 3,),
+                SizedBox(height: 30,),
+                Row(children: [
+                  Text("Delivery Time",style: AppWidget.semiBoldTextFeildStyle(),),
+                  SizedBox(width: 5,),
+                  Icon(Icons.alarm),
+                  SizedBox(width: 5,),
+                  Text("30 min",style: AppWidget.semiBoldTextFeildStyle(),)
+                ],),
+                Spacer(),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 40),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Total Price",style: AppWidget.semiBoldTextFeildStyle(),),
+                          Text("\$28",style: AppWidget.HeadlineTextFeildStyle(),),
+                        ],
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width/2,
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(color: Colors.black,borderRadius: BorderRadius.circular(10)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text("Add To Cart",style: TextStyle(color: Colors.white,fontSize: 16),
+                            ),
+                            SizedBox(width: 30,),
+                            Container(
+                              padding:EdgeInsets.all(3) ,
+                              decoration: BoxDecoration(
+                                color: Colors.grey,
+                                borderRadius:BorderRadius.circular(10) 
+                              ),
+                              child: Icon(Icons.shopping_cart_outlined,color: Colors.white,),
+                            ),
+                            SizedBox(width: 10,),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                )
           ],
         ),
       ),
